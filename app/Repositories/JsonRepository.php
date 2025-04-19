@@ -10,4 +10,8 @@ class JsonRepository extends BaseRepository {
     public function obterConvenios(): array {
         return $this->listarChaveValor('convenios.json');
     }
+
+    public function obterTaxas(): array {
+        return $this->lerJson('taxas.json')->all();
+    }
 }

@@ -10,7 +10,7 @@ abstract class BaseRepository {
         return collect(json_decode(file_get_contents($path), true));
     }
 
-    protected function listarChaveValor(string $filename, string $key = 'id', string $value = 'nome'): array {
+    protected function listarChaveValor(string $filename, string $key = 'chave', string $value = 'valor'): array {
         return $this->lerJson($filename)->pluck($value, $key)->toArray();
     }
 
