@@ -1,8 +1,8 @@
-## API de Simulação de Crédito - Desafio Backend Empresta
+## API de Simulação de Empréstimos - Desafio Backend Empresta
 
 API REST para simulação de empréstimos consignados com integração para aplicações web e mobile, desenvolvida como solução para o desafio técnico da Emprestra.
 
-## Funcionalidades principais:
+## Funcionalidades principais
 
 - **Consulta de instituições financeiras**
 
@@ -15,6 +15,14 @@ API REST para simulação de empréstimos consignados com integração para apli
 - **PHP 8+**
 
 - **Laravel 12**
+
+## Requisitos
+
+- **Git**
+
+- **PHP 8.2**
+
+- **Composer 2.0+**
 
 ## Endpoints da API
 
