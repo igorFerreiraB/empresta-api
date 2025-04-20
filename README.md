@@ -16,6 +16,31 @@ API REST para simulação de empréstimos consignados com integração para apli
 
 - **Laravel 12**
 
+## Instalação
+
+```bash
+git clone https://github.com/igorFerreiraB/empresta-api.git
+cd empresta-api
+composer install
+cp .env.example .env
+php artisan key:generate
+php artisan serve
+```
+
+## Cálculo do Coeficiente
+
+O coeficiente é utilizado para calcular o valor da parcela de um empréstimo e é baseado na fórmula da Tabela Price:
+
+```coeficiente = [i × (1 + i)^n] / [(1 + i)^n - 1]```
+
+Onde:
+- `i` = taxa de juros mensal (ex: 2% = 0.02)
+- `n` = número de parcelas
+
+O valor da parcela é obtido multiplicando o valor solicitado pelo coeficiente:
+```valor_parcela = valor_emprestimo × coeficiente```
+
+
 ## Requisitos
 
 - **Git**
@@ -23,6 +48,18 @@ API REST para simulação de empréstimos consignados com integração para apli
 - **PHP 8.2**
 
 - **Composer 2.0+**
+
+- **Pest 3.8**
+
+
+## Rodando os Testes
+
+Para executar os testes unitários da aplicação:
+
+```bash
+# Usando o Pest
+./vendor/bin/pest
+```
 
 ## Endpoints da API
 
