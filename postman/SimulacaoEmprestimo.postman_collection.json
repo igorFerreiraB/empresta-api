@@ -1,0 +1,107 @@
+{
+	"info": {
+		"_postman_id": "7330e3c9-1035-427e-8088-5792e11af42d",
+		"name": "API Simulação de Empréstimos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27538787"
+	},
+	"item": [
+		{
+			"name": "api/instituicoes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/instituicoes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"instituicoes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/convenios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/convenios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"convenios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/simulacao",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"valor_emprestimo\": 10000,\r\n    \"parcelas\": 72,\r\n    \"instituicoes\": [\"PAN\", \"OLE\"],\r\n    \"convenios\": [\"INSS\", \"FEDERAL\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/simulacao",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"simulacao"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

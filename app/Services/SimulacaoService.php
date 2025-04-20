@@ -30,7 +30,8 @@ class SimulacaoService
                 continue;
             }
 
-            $valorParcela = $valorEmprestimo * $taxa['coeficiente'];
+            $coeficiente = $this->calcularCoeficiente($taxa['taxa'] / 100, $taxa['parcelas']);
+            $valorParcela = $valorEmprestimo * $coeficiente;
             $valorTotal = $valorParcela * $taxa['parcelas'];
 
             $resultados[] = [
@@ -39,10 +40,22 @@ class SimulacaoService
                 'parcelas' => $taxa['parcelas'],
                 'taxa' => $taxa['taxa'],
                 'valor_parcela' => round($valorParcela, 2),
-                'valor_total' => round($valorTotal, 2)
+                'valor_total' => round($valorTotal, 2),
+                'coeficiente' => round($coeficiente, 6)
             ];
         }
 
         return $resultados;
     }
+
+    public function calcularCoeficiente(float $taxaMensal, int $parcelas): float
+    {
+        $i = $taxaMensal;
+        $n = $parcelas;
+
+        $potencia = pow(1 + $i, $n);
+
+        return ($i * $potencia) / ($potencia - 1);
+    }
+
 }
